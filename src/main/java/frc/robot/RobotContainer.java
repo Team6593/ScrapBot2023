@@ -24,7 +24,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final XboxController xboxController = new XboxController(0);
   private final DriveTrain driveTrain;
-  private final Camera camera;
+  public final Camera camera;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
