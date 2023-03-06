@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.robot.commands.AutonomousPath;
 // import frc.robot.Constants.OperatorConstants;
 //import frc.robot.commands.BalanceOnChargeStation;
 import frc.robot.commands.DefaultDriveTrain;
@@ -58,6 +59,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return null;
+    return new AutonomousPath(driveTrain);
   }
 }
