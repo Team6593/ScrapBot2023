@@ -4,10 +4,6 @@
 
 package frc.robot.commands;
 
-import com.pathplanner.lib.PathConstraints;
-import com.pathplanner.lib.PathPlanner;
-import com.pathplanner.lib.PathPlannerTrajectory;
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
@@ -30,8 +26,7 @@ public class AutonomousPath extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    PathPlannerTrajectory autonPath = PathPlanner.loadPath("chargestation", 
-    new PathConstraints(2, 1));
+    
     
   }
 

@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
@@ -34,8 +35,12 @@ public class DefaultDriveTrain extends CommandBase {
     //driveTrain.rightSide(xbox.getRawAxis(5) * 0.5);
     //driveTrain.leftSide(xbox.getRawAxis(1) * 0.5);
     //driveTrain.tankDrive(xbox.getRawAxis(1) * 0.8, xbox.getRawAxis(5) * 0.8);
-    driveTrain.arcadeDrive(xbox.getRawAxis(1) * 0.5, -xbox.getRawAxis(4) * 0.5);
-    
+    driveTrain.arcadeDrive(xbox.getRawAxis(1), xbox.getRawAxis(4));
+    if(driveTrain.detectCollisions() ) {
+      xbox.setRumble(RumbleType.kBothRumble, .5);
+    } else if(!driveTrain.detectCollisions()) {
+      xbox.setRumble(RumbleType.kBothRumble, 0);
+    }
   }
 
   // Called once the command ends or is interrupted.
