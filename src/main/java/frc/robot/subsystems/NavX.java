@@ -144,11 +144,13 @@ public class NavX extends SubsystemBase {
     SmartDashboard.putNumber("Roll (NavX Pitch)", getPitch());
 
     SmartDashboard.putNumber("Pitch (NavX Roll)", getRoll());
+    SmartDashboard.putNumber("Position X", getRobotPosition().x);
+    SmartDashboard.putNumber("Position Y", getRobotPosition().y);
     
   }
 
   @Override
   public void periodic() {
-    //displayNavXData();
+    displayNavXData();
   }
 }

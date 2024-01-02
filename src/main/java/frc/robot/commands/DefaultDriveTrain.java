@@ -8,10 +8,12 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.RumbleType;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.NavX;
 
 public class DefaultDriveTrain extends CommandBase {
   /** Creates a new DefaultDriveTrain. */
   private DriveTrain driveTrain;
+  private NavX navX = new NavX();
   private XboxController xbox;
 
   public DefaultDriveTrain(DriveTrain driveTrain, XboxController xbox) {
@@ -41,6 +43,15 @@ public class DefaultDriveTrain extends CommandBase {
     } else if(!driveTrain.detectCollisions()) {
       xbox.setRumble(RumbleType.kBothRumble, 0);
     }
+  }
+
+  public void rotateToAngle(double angleDegree) {
+    navX.reset();
+    double currentAngle = navX.getYaw();
+    double deltaAngle = angleDegree - currentAngle;
+
+    // TODO: Control loop
+
   }
 
   // Called once the command ends or is interrupted.

@@ -24,6 +24,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
+  NavX navX = new NavX();
+  
   /** Creates a new DriveTrain. */
   private Spark masterRight = new Spark(1);
   private Spark masterLeft = new Spark(2);
