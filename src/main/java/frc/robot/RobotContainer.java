@@ -9,6 +9,8 @@ import frc.robot.commands.AutonomousPath;
 // import frc.robot.Constants.OperatorConstants;
 //import frc.robot.commands.BalanceOnChargeStation;
 import frc.robot.commands.DefaultDriveTrain;
+import frc.robot.commands.AutoCommands.DriveForward;
+import frc.robot.commands.AutoCommands.TestSparkMotor;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.vision.Camera;
 
@@ -67,6 +69,8 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     PathPlannerPath path = PathPlannerPath.fromPathFile("mypath");
     // An example command will be run in autonomous
-    return AutoBuilder.followPathWithEvents(path);
+    //return AutoBuilder.followPathWithEvents(path);
+    //return new DriveForward(driveTrain);
+    return new TestSparkMotor(driveTrain, 2);
   }
 }

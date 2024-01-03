@@ -116,6 +116,44 @@ public class DriveTrain extends SubsystemBase {
     
   }
 
+  public void moveToPosition(double endPosition) {
+    double currentPosition = navX.getRobotPosition().x;
+    System.out.println(currentPosition + " CURRENT POSITION");
+    double errorPosition = endPosition - currentPosition;
+    if (currentPosition <= endPosition) {
+      arcadeDrive(.4, -.2);
+      System.out.println("GOING FORWARD");
+    } else {
+      System.out.println("STOPPED");
+      stopMotors();
+    }
+  }
+
+  /**
+   * 
+   * @param motorID - 0 through 4, check RoboRIO and motor controller connections.
+   * @param speed - 0 to 1. where 0 is 0% and 1 is 100% power.
+   */
+  public void setSpecificMotorSpeed(int motorID, double speed) {
+    switch(motorID) {
+      case 1:
+        masterRight.set(speed);
+        break;
+      case 2:
+        masterLeft.set(speed);
+        break;
+      case 3:
+        followerRight.set(speed);
+        break;
+      case 4:
+        followerLeft.set(speed);
+        break;
+      default:
+        System.out.println("Invalid motor ID");
+        break;
+    }
+  }
+
   // collision detection code
   double lastWorldLinearAccelerationX;
   double lastWorldLinearAccelerationY;
